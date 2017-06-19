@@ -1,0 +1,30 @@
+---
+vms:
+- name: master
+  hostname: master.puppet.vm
+  box: 'puppetlabs/centos-7.0-64-nocm'
+  roles:
+   - base
+   - stop-firewall
+   - pe-puppet-master
+   - run_puppet_agent
+- name: agent
+  hostname: agent.puppet.vm
+  box: 'puppetlabs/centos-7.0-64-nocm'
+  roles:
+   - base
+   - pe-puppet-agent
+- name: jenkins
+  box: 'puppetlabs/centos-7.0-64-nocm'
+  hostname: jenkins.puppet.vm
+  roles:
+   - base
+   - pe-puppet-agent
+   - run_puppet_agent
+- name: git
+  hostname: git.puppet.vm
+  box: 'puppetlabs/centos-7.0-64-nocm'
+  roles:
+   - base
+   - pe-puppet-agent
+   - run_puppet_agent
